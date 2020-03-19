@@ -6,7 +6,6 @@ if(isset($_SESSION['access_token'])){
 	exit();
 }
 
-
 $redirectTo = "http://localhost/apiy/";
 $data = ['email'];
 $fullURL = $handler->getLoginUrl($redirectTo, $data);

@@ -46,6 +46,11 @@ class PageController extends Components
                 break;
         }
     }
+
+    function login()
+    {
+        return include("views/login.php");
+    }
 }
 
 $page = new PageController;
