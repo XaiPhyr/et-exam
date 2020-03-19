@@ -51,6 +51,18 @@ class PageController extends Components
     {
         return include("views/login.php");
     }
+
+    function logout()
+    {
+        require_once("plugins/google/config.php");
+        session_start();
+        session_destroy();
+        unset($_SESSION['access_token']);
+        $gClient->revokeToken();
+        session_destroy();
+        header("location: .");
+        exit();
+    }
 }
 
 $page = new PageController;

@@ -1,3 +1,12 @@
+<?php
+include("sevices/components.php");
+session_start();
+$token = $_GET['code'];
+$_SESSION['access_token'] = $token;
+
+// if (empty($_SESSION['access_token'])) header("location: .");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +26,14 @@
 <body>
     <div class="card mb-5">
         <div class="card-body mx-auto">
-            <a href="." class="mx-5">Home</a>
+            <!-- <a href="." class="mx-5">Home</a> -->
             <a href="?page=products" class="mx-5">Product List</a>
             <a href="?page=countries" class="mx-5">Country List</a>
             <a href="?page=wikipedia" class="mx-5">Search on Wikipedia</a>
+            <?php if ($_SESSION['access_token'] != null) { ?>
+                <a href="?page=logout">Logout</a>
+            <?php } else { ?>
+                <a href=".">Login</a>
+            <?php } ?>
         </div>
     </div>

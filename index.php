@@ -6,6 +6,10 @@ switch ($_GET['page']) {
         $page->login();
         break;
 
+    case 'logout':
+        $page->logout();
+        break;
+
     case 'dashboard':
         $page->dashboard();
         break;
