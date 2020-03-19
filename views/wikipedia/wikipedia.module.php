@@ -6,7 +6,7 @@ class WikipediaModule
     {
         $domOBJ = new DOMDocument();
         if ($_POST['keyword']) {
-            $domOBJ->load("https://en.wikipedia.org/w/api.php?action=opensearch&format=xml&search=" . $_POST['keyword']);
+            $domOBJ->load("https://en.wikipedia.org/w/api.php?action=opensearch&limit=max&format=xml&search=" . $_POST['keyword']);
         }
         return $domOBJ->getElementsByTagName("Item");
     }
